@@ -31,19 +31,34 @@
     <div class="container">
       <!-- Timeblocks go here -->
       <div class="row d-flex hr">
-        <!-- need to add bootstrap and css to make this fit correctly -->
         <section class="col-1 time">9AM</section>
-        <section class="col-10 user-input"><Textarea rows='3'></Textarea></section>
-        <button class="col-1 but" onclick="sub"></button> 
+        <form class="col-10 user-input"><Textarea class="user-text" rows='3'></Textarea></form>
+        <button class="col-1 but" onclick="sub(0)"></button> 
       </div>
     </div>
 
-    <script>// need to work on this so local storage works
-      console.log("working")
-      var store = [{"9AM": "school"}]
-      function sub(){
-        console.log("working")
-        localStorage.setItem("hours", store);
+    <script>// need to find how to show words from local strorage to textarea
+      // var items = localStorage.getItem(store.nine);
+      // for(var i = 0; i < localStorage.length; i++){
+      //   if(localStorage.getItem("nine") != ""){
+      //     document.getElementsByClassName("user-text").innerHTML = localStorage.getItem("nine")
+      //   }
+      // }
+      // console.log(items)
+
+      
+      function sub(num){
+        var text = document.getElementsByClassName("user-text");
+        var store = {};
+
+        switch(num){
+          case 0:
+            store.nine = text[0].value;
+            break;
+          case 1:
+            console.log("case2");
+        }
+        localStorage.setItem("hours", JSON.stringify(store));
       }
     </script>
 
