@@ -35,30 +35,91 @@
         <form class="col-10 user-input"><Textarea class="user-text" rows='3'></Textarea></form>
         <button class="col-1 but" onclick="sub(0)"></button> 
       </div>
+      <div class="row d-flex hr">
+        <section class="col-1 time">10AM</section>
+        <form class="col-10 user-input"><Textarea class="user-text" rows='3'></Textarea></form>
+        <button class="col-1 but" onclick="sub(1)"></button> 
+      </div>
+      <div class="row d-flex hr">
+        <section class="col-1 time">11AM</section>
+        <form class="col-10 user-input"><Textarea class="user-text" rows='3'></Textarea></form>
+        <button class="col-1 but" onclick="sub(2)"></button> 
+      </div>
+      <div class="row d-flex hr">
+        <section class="col-1 time">12AM</section>
+        <form class="col-10 user-input"><Textarea class="user-text" rows='3'></Textarea></form>
+        <button class="col-1 but" onclick="sub(3)"></button> 
+      </div>
+      <div class="row d-flex hr">
+        <section class="col-1 time">1PM</section>
+        <form class="col-10 user-input"><Textarea class="user-text" rows='3'></Textarea></form>
+        <button class="col-1 but" onclick="sub(4)"></button> 
+      </div>
+      <div class="row d-flex hr">
+        <section class="col-1 time">2PM</section>
+        <form class="col-10 user-input"><Textarea class="user-text" rows='3'></Textarea></form>
+        <button class="col-1 but" onclick="sub(5)"></button> 
+      </div>
+      <div class="row d-flex hr">
+        <section class="col-1 time">3PM</section>
+        <form class="col-10 user-input"><Textarea class="user-text" rows='3'></Textarea></form>
+        <button class="col-1 but" onclick="sub(6)"></button> 
+      </div>
+      <div class="row d-flex hr">
+        <section class="col-1 time">4PM</section>
+        <form class="col-10 user-input"><Textarea class="user-text" rows='3'></Textarea></form>
+        <button class="col-1 but" onclick="sub(7)"></button> 
+      </div>
     </div>
 
-    <script>// need to find how to show words from local strorage to textarea
-      // var items = localStorage.getItem(store.nine);
-      // for(var i = 0; i < localStorage.length; i++){
-      //   if(localStorage.getItem("nine") != ""){
-      //     document.getElementsByClassName("user-text").innerHTML = localStorage.getItem("nine")
-      //   }
-      // }
-      // console.log(items)
+    <script>// need to work on moment.js now and everything should be done
+      var items = JSON.parse(localStorage.getItem("hours"));
+      var text = document.getElementsByClassName("user-text");
+      var store = {"nine":"","ten":"","eleven":"","twelve":"","one":"","two":"","three":"","four":""};
 
-      
+      for(var i = 0; i < Object.keys(items).length; i++){
+        if(Object.values(items)[i] != ""){
+          document.getElementsByClassName("user-text")[i].value = Object.values(items)[i];
+        }
+        else{console.log("skipped")}
+      }      
+        
       function sub(num){
-        var text = document.getElementsByClassName("user-text");
-        var store = {};
-
         switch(num){
           case 0:
             store.nine = text[0].value;
+            localStorage.setItem("hours", JSON.stringify(store));
             break;
           case 1:
-            console.log("case2");
+            store.ten = text[1].value;
+            localStorage.setItem("hours", JSON.stringify(store));
+            break;
+          case 2:
+            store.eleven = text[2].value;
+            localStorage.setItem("hours", JSON.stringify(store));
+            break;
+          case 3:
+            store.twelve = text[3].value;
+            localStorage.setItem("hours", JSON.stringify(store));
+            break;
+          case 4:
+            store.one = text[4].value;
+            localStorage.setItem("hours", JSON.stringify(store));
+            break;
+          case 5:
+            store.two = text[5].value;
+            localStorage.setItem("hours", JSON.stringify(store));
+            break;
+          case 6:
+            store.three = text[6].value;
+            localStorage.setItem("hours", JSON.stringify(store));
+            break;
+          case 7:
+            store.four = text[7].value;
+            localStorage.setItem("hours", JSON.stringify(store));
+            break;
         }
-        localStorage.setItem("hours", JSON.stringify(store));
+        // localStorage.setItem("hours", JSON.stringify(store));
       }
     </script>
 
